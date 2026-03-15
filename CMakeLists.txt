@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.5)
+project(OnlineCRpg)
+
+include(FetchContent)
+FetchContent_Declare(
+    raylib
+    GIT_REPOSITORY https://github.com/raysan5/raylib.git
+    GIT_TAG 5.5
+)
+FetchContent_MakeAvailable(raylib)
+
+add_executable(OnlineCRpg src/main.c src/level/level.c src/global.c src/network/network.c)
+target_link_libraries(OnlineCRpg PRIVATE raylib)
+
+# Set C standard
+set_target_properties(OnlineCRpg PROPERTIES C_STANDARD 99)
+
+# Platform-specific settings
+if(WIN32)
+    target_compile_definitions(OnlineCRpg PRIVATE _CRT_SECURE_NO_WARNINGS)
+    if(MSVC)
+        set_property(TARGET OnlineCRpg PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    endif()
+endif()
+
+# Optionally, install target
+install(TARGETS OnlineCRpg RUNTIME DESTINATION bin)
