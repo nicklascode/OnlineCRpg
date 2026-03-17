@@ -2,6 +2,7 @@
 #define TYPES_H
 
 #include <inttypes.h>
+#include <stdbool.h> // Include bools for all
 
 typedef uint8_t u8;
 typedef uint16_t u16;

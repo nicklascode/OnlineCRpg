@@ -9,8 +9,21 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
-add_executable(OnlineCRpg src/main.c src/level/level.c src/global.c src/network/network.c)
-target_link_libraries(OnlineCRpg PRIVATE raylib)
+add_executable(OnlineCRpg
+    src/main.c
+    src/level/level.c
+    src/global.c
+    src/network/network.c
+    src/network/client.c
+    src/network/server.c
+    src/util/logger.c
+    src/network/packet.c
+    src/network/global_net.c
+    src/level/tile.c
+    src/util/assets.c
+    src/entites/entity.c
+)
+target_link_libraries(OnlineCRpg PRIVATE raylib ws2_32)
 
 # Set C standard
 set_target_properties(OnlineCRpg PROPERTIES C_STANDARD 99)

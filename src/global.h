@@ -3,10 +3,14 @@
 
 #include "level/level.h"
 
-typedef struct global
-{
-    Level level;
+typedef struct network {
+    u8 mode;
+    int isConnected;
+} Network;
 
+typedef struct global {
+    Level level;
+    Network network;
 } Global;
 
 extern Global global; // Extern allows us to use the global variable in other files without defining it multiple times (we define it in global.c)

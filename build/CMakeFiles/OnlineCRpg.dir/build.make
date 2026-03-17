@@ -131,12 +131,140 @@ CMakeFiles/OnlineCRpg.dir/src/network/network.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/network/network.c.s"
 	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\network\network.c -o CMakeFiles\OnlineCRpg.dir\src\network\network.c.s
 
+CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj: E:/Dev/OnlineCRpg/src/network/client.c
+CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\network\client.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\network\client.c.obj -c E:\Dev\OnlineCRpg\src\network\client.c
+
+CMakeFiles/OnlineCRpg.dir/src/network/client.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/network/client.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\network\client.c > CMakeFiles\OnlineCRpg.dir\src\network\client.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/network/client.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/network/client.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\network\client.c -o CMakeFiles\OnlineCRpg.dir\src\network\client.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj: E:/Dev/OnlineCRpg/src/network/server.c
+CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\network\server.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\network\server.c.obj -c E:\Dev\OnlineCRpg\src\network\server.c
+
+CMakeFiles/OnlineCRpg.dir/src/network/server.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/network/server.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\network\server.c > CMakeFiles\OnlineCRpg.dir\src\network\server.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/network/server.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/network/server.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\network\server.c -o CMakeFiles\OnlineCRpg.dir\src\network\server.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj: E:/Dev/OnlineCRpg/src/util/logger.c
+CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\util\logger.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\util\logger.c.obj -c E:\Dev\OnlineCRpg\src\util\logger.c
+
+CMakeFiles/OnlineCRpg.dir/src/util/logger.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/util/logger.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\util\logger.c > CMakeFiles\OnlineCRpg.dir\src\util\logger.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/util/logger.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/util/logger.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\util\logger.c -o CMakeFiles\OnlineCRpg.dir\src\util\logger.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj: E:/Dev/OnlineCRpg/src/network/packet.c
+CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\network\packet.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\network\packet.c.obj -c E:\Dev\OnlineCRpg\src\network\packet.c
+
+CMakeFiles/OnlineCRpg.dir/src/network/packet.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/network/packet.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\network\packet.c > CMakeFiles\OnlineCRpg.dir\src\network\packet.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/network/packet.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/network/packet.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\network\packet.c -o CMakeFiles\OnlineCRpg.dir\src\network\packet.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj: E:/Dev/OnlineCRpg/src/network/global_net.c
+CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\network\global_net.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\network\global_net.c.obj -c E:\Dev\OnlineCRpg\src\network\global_net.c
+
+CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\network\global_net.c > CMakeFiles\OnlineCRpg.dir\src\network\global_net.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\network\global_net.c -o CMakeFiles\OnlineCRpg.dir\src\network\global_net.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj: E:/Dev/OnlineCRpg/src/level/tile.c
+CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\level\tile.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\level\tile.c.obj -c E:\Dev\OnlineCRpg\src\level\tile.c
+
+CMakeFiles/OnlineCRpg.dir/src/level/tile.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/level/tile.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\level\tile.c > CMakeFiles\OnlineCRpg.dir\src\level\tile.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/level/tile.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/level/tile.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\level\tile.c -o CMakeFiles\OnlineCRpg.dir\src\level\tile.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj: E:/Dev/OnlineCRpg/src/util/assets.c
+CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\util\assets.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\util\assets.c.obj -c E:\Dev\OnlineCRpg\src\util\assets.c
+
+CMakeFiles/OnlineCRpg.dir/src/util/assets.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/util/assets.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\util\assets.c > CMakeFiles\OnlineCRpg.dir\src\util\assets.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/util/assets.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/util/assets.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\util\assets.c -o CMakeFiles\OnlineCRpg.dir\src\util\assets.c.s
+
+CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj: CMakeFiles/OnlineCRpg.dir/flags.make
+CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj: CMakeFiles/OnlineCRpg.dir/includes_C.rsp
+CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj: E:/Dev/OnlineCRpg/src/entites/entity.c
+CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj: CMakeFiles/OnlineCRpg.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj -MF CMakeFiles\OnlineCRpg.dir\src\entites\entity.c.obj.d -o CMakeFiles\OnlineCRpg.dir\src\entites\entity.c.obj -c E:\Dev\OnlineCRpg\src\entites\entity.c
+
+CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.i"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Dev\OnlineCRpg\src\entites\entity.c > CMakeFiles\OnlineCRpg.dir\src\entites\entity.c.i
+
+CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.s"
+	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Dev\OnlineCRpg\src\entites\entity.c -o CMakeFiles\OnlineCRpg.dir\src\entites\entity.c.s
+
 # Object files for target OnlineCRpg
 OnlineCRpg_OBJECTS = \
 "CMakeFiles/OnlineCRpg.dir/src/main.c.obj" \
 "CMakeFiles/OnlineCRpg.dir/src/level/level.c.obj" \
 "CMakeFiles/OnlineCRpg.dir/src/global.c.obj" \
-"CMakeFiles/OnlineCRpg.dir/src/network/network.c.obj"
+"CMakeFiles/OnlineCRpg.dir/src/network/network.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj" \
+"CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj"
 
 # External object files for target OnlineCRpg
 OnlineCRpg_EXTERNAL_OBJECTS =
@@ -145,12 +273,20 @@ OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/main.c.obj
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/level/level.c.obj
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/global.c.obj
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/network/network.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj
+OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/build.make
 OnlineCRpg.exe: _deps/raylib-build/raylib/libraylib.a
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/linkLibs.rsp
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/objects1.rsp
 OnlineCRpg.exe: CMakeFiles/OnlineCRpg.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable OnlineCRpg.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable OnlineCRpg.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\OnlineCRpg.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -245,6 +245,30 @@ update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f _deps\raylib-build\raylib\external\glfw\src\CMakeFiles\update_mappings.dir\build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
+src/entites/entity.obj: src/entites/entity.c.obj
+.PHONY : src/entites/entity.obj
+
+# target to build an object file
+src/entites/entity.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.obj
+.PHONY : src/entites/entity.c.obj
+
+src/entites/entity.i: src/entites/entity.c.i
+.PHONY : src/entites/entity.i
+
+# target to preprocess a source file
+src/entites/entity.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.i
+.PHONY : src/entites/entity.c.i
+
+src/entites/entity.s: src/entites/entity.c.s
+.PHONY : src/entites/entity.s
+
+# target to generate assembly for a file
+src/entites/entity.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.s
+.PHONY : src/entites/entity.c.s
+
 src/global.obj: src/global.c.obj
 .PHONY : src/global.obj
 
@@ -293,6 +317,30 @@ src/level/level.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/level/level.c.s
 .PHONY : src/level/level.c.s
 
+src/level/tile.obj: src/level/tile.c.obj
+.PHONY : src/level/tile.obj
+
+# target to build an object file
+src/level/tile.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/level/tile.c.obj
+.PHONY : src/level/tile.c.obj
+
+src/level/tile.i: src/level/tile.c.i
+.PHONY : src/level/tile.i
+
+# target to preprocess a source file
+src/level/tile.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/level/tile.c.i
+.PHONY : src/level/tile.c.i
+
+src/level/tile.s: src/level/tile.c.s
+.PHONY : src/level/tile.s
+
+# target to generate assembly for a file
+src/level/tile.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/level/tile.c.s
+.PHONY : src/level/tile.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -316,6 +364,54 @@ src/main.s: src/main.c.s
 src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+src/network/client.obj: src/network/client.c.obj
+.PHONY : src/network/client.obj
+
+# target to build an object file
+src/network/client.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/client.c.obj
+.PHONY : src/network/client.c.obj
+
+src/network/client.i: src/network/client.c.i
+.PHONY : src/network/client.i
+
+# target to preprocess a source file
+src/network/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/client.c.i
+.PHONY : src/network/client.c.i
+
+src/network/client.s: src/network/client.c.s
+.PHONY : src/network/client.s
+
+# target to generate assembly for a file
+src/network/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/client.c.s
+.PHONY : src/network/client.c.s
+
+src/network/global_net.obj: src/network/global_net.c.obj
+.PHONY : src/network/global_net.obj
+
+# target to build an object file
+src/network/global_net.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.obj
+.PHONY : src/network/global_net.c.obj
+
+src/network/global_net.i: src/network/global_net.c.i
+.PHONY : src/network/global_net.i
+
+# target to preprocess a source file
+src/network/global_net.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.i
+.PHONY : src/network/global_net.c.i
+
+src/network/global_net.s: src/network/global_net.c.s
+.PHONY : src/network/global_net.s
+
+# target to generate assembly for a file
+src/network/global_net.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.s
+.PHONY : src/network/global_net.c.s
 
 src/network/network.obj: src/network/network.c.obj
 .PHONY : src/network/network.obj
@@ -341,6 +437,102 @@ src/network/network.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/network.c.s
 .PHONY : src/network/network.c.s
 
+src/network/packet.obj: src/network/packet.c.obj
+.PHONY : src/network/packet.obj
+
+# target to build an object file
+src/network/packet.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/packet.c.obj
+.PHONY : src/network/packet.c.obj
+
+src/network/packet.i: src/network/packet.c.i
+.PHONY : src/network/packet.i
+
+# target to preprocess a source file
+src/network/packet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/packet.c.i
+.PHONY : src/network/packet.c.i
+
+src/network/packet.s: src/network/packet.c.s
+.PHONY : src/network/packet.s
+
+# target to generate assembly for a file
+src/network/packet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/packet.c.s
+.PHONY : src/network/packet.c.s
+
+src/network/server.obj: src/network/server.c.obj
+.PHONY : src/network/server.obj
+
+# target to build an object file
+src/network/server.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/server.c.obj
+.PHONY : src/network/server.c.obj
+
+src/network/server.i: src/network/server.c.i
+.PHONY : src/network/server.i
+
+# target to preprocess a source file
+src/network/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/server.c.i
+.PHONY : src/network/server.c.i
+
+src/network/server.s: src/network/server.c.s
+.PHONY : src/network/server.s
+
+# target to generate assembly for a file
+src/network/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/server.c.s
+.PHONY : src/network/server.c.s
+
+src/util/assets.obj: src/util/assets.c.obj
+.PHONY : src/util/assets.obj
+
+# target to build an object file
+src/util/assets.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/assets.c.obj
+.PHONY : src/util/assets.c.obj
+
+src/util/assets.i: src/util/assets.c.i
+.PHONY : src/util/assets.i
+
+# target to preprocess a source file
+src/util/assets.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/assets.c.i
+.PHONY : src/util/assets.c.i
+
+src/util/assets.s: src/util/assets.c.s
+.PHONY : src/util/assets.s
+
+# target to generate assembly for a file
+src/util/assets.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/assets.c.s
+.PHONY : src/util/assets.c.s
+
+src/util/logger.obj: src/util/logger.c.obj
+.PHONY : src/util/logger.obj
+
+# target to build an object file
+src/util/logger.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/logger.c.obj
+.PHONY : src/util/logger.c.obj
+
+src/util/logger.i: src/util/logger.c.i
+.PHONY : src/util/logger.i
+
+# target to preprocess a source file
+src/util/logger.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/logger.c.i
+.PHONY : src/util/logger.c.i
+
+src/util/logger.s: src/util/logger.c.s
+.PHONY : src/util/logger.s
+
+# target to generate assembly for a file
+src/util/logger.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/logger.c.s
+.PHONY : src/util/logger.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -360,18 +552,42 @@ help:
 	@echo ... OnlineCRpg
 	@echo ... glfw
 	@echo ... raylib
+	@echo ... src/entites/entity.obj
+	@echo ... src/entites/entity.i
+	@echo ... src/entites/entity.s
 	@echo ... src/global.obj
 	@echo ... src/global.i
 	@echo ... src/global.s
 	@echo ... src/level/level.obj
 	@echo ... src/level/level.i
 	@echo ... src/level/level.s
+	@echo ... src/level/tile.obj
+	@echo ... src/level/tile.i
+	@echo ... src/level/tile.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/network/client.obj
+	@echo ... src/network/client.i
+	@echo ... src/network/client.s
+	@echo ... src/network/global_net.obj
+	@echo ... src/network/global_net.i
+	@echo ... src/network/global_net.s
 	@echo ... src/network/network.obj
 	@echo ... src/network/network.i
 	@echo ... src/network/network.s
+	@echo ... src/network/packet.obj
+	@echo ... src/network/packet.i
+	@echo ... src/network/packet.s
+	@echo ... src/network/server.obj
+	@echo ... src/network/server.i
+	@echo ... src/network/server.s
+	@echo ... src/util/assets.obj
+	@echo ... src/util/assets.i
+	@echo ... src/util/assets.s
+	@echo ... src/util/logger.obj
+	@echo ... src/util/logger.i
+	@echo ... src/util/logger.s
 .PHONY : help
 
 
