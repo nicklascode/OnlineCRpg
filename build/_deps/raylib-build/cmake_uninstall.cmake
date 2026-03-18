@@ -1,8 +1,8 @@
-if(NOT EXISTS "C:/Dev/OnlineCRpg/build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: C:/Dev/OnlineCRpg/build/install_manifest.txt")
+if(NOT EXISTS "E:/Dev/OnlineCRpg/build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: E:/Dev/OnlineCRpg/build/install_manifest.txt")
 endif()
 
-file(READ "C:/Dev/OnlineCRpg/build/install_manifest.txt" files)
+file(READ "E:/Dev/OnlineCRpg/build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")

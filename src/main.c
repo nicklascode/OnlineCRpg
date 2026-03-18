@@ -31,12 +31,6 @@ int main(int argc, char** argv)
         create_entity(current_entity_manager, ENTITY_PLAYER);
     }
 
-    DEBUG_LOG("Current entity count: %d", current_entity_manager->entity_count);
-
-    remove_entity(current_entity_manager, 1);
-
-    DEBUG_LOG("Current entity count after removal: %d", current_entity_manager->entity_count);
-
     // Initialize global level
     global.level = *generate_basic_level(10, 10);
 

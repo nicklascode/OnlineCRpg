@@ -9,7 +9,6 @@ EntityManager* create_entity_manager(u16 max_entities) {
     EntityManager* manager = (EntityManager*)malloc(sizeof(EntityManager));
     manager->entities = (Entity*)malloc(sizeof(Entity) * max_entities);
     manager->entity_count = 0;
-    current_entity_manager = manager;
     return manager;
 }
 
