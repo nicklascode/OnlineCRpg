@@ -1,0 +1,37 @@
+#Memory operators#
+
+Address Operator '&'
+    Basically a ref to a memory location (dst/address) unlike a pointer (Dereference) which is a ref to a value (src/value)
+
+Dereference Operator '*'
+    Basically a ref to a value (src/value) unlike an address which is a ref to a memory location (dst/address)
+
+Pointer Operator
+    Points to a memory location (dst/address) and can be dereferenced to get the value at that location (src/value)
+
+Malloc
+    Allocates a block of memory on the heap and returns a pointer to the beginning of the block
+    Kinda like new in C#
+
+Relloc
+    Changes the size of a previously allocated block of memory and returns a pointer to the new block
+    Kinda like resizing an array in C#
+    The thing I used in my snake clone to make a dynamic array for the snake's body segments
+
+Strcpy
+    Copies a string from one location to another (Memory location) :D
+
+Example:
+''
+    int x = 5; // x is a variable that holds the value 5
+    int* ptr = &x; // ptr is a pointer that holds the address of x
+    *ptr = 10; // dereferencing ptr to change the value of x to 10
+
+    int size = 10;
+    int* arr = (int*)malloc(size * sizeof(int)); // allocating memory for an array of 10 integers
+
+    for (int i = 0; i < size; i++) { // DON'T DO THIS SHIT IN A LOOP 
+        size++;
+        relloc(arr, size * sizeof(int)); // resizing the array to hold more integers
+    }
+''

@@ -11,8 +11,8 @@
 
 int main(int argc, char** argv)
 {
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenWidth = 1280;
+    const int screenHeight = 720;
 
     if (argc > 1) {
 
@@ -23,8 +23,19 @@ int main(int argc, char** argv)
         }
     }
 
-    InitWindow(screenWidth, screenHeight, "Simple Raylib Window");
+    InitWindow(screenWidth, screenHeight, "Need name plz");
     assets_init();
+
+    create_entity_manager(100); // Create an entity manager with a max of 100 entities
+    for(int i = 0; i < 100; i++) {
+        create_entity(current_entity_manager, ENTITY_PLAYER);
+    }
+
+    DEBUG_LOG("Current entity count: %d", current_entity_manager->entity_count);
+
+    remove_entity(current_entity_manager, 1);
+
+    DEBUG_LOG("Current entity count after removal: %d", current_entity_manager->entity_count);
 
     // Initialize global level
     global.level = *generate_basic_level(10, 10);

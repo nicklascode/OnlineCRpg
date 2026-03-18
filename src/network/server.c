@@ -3,13 +3,14 @@
 #include "network.h"
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#include <string.h>
 
 #define MAX_CLIENTS 32
 
 typedef struct {
     SOCKET socket;
     SOCKADDR_IN address;
-    int clientId;
+    u8 clientId;
     int connected;
 } ClientSocket;
 
@@ -74,12 +75,12 @@ void server_handle_packets() {
                         {
                             PlayerDataPacket greeting;
                             memcpy(&greeting, packet.buffer, sizeof(PlayerDataPacket));
-                            DEBUG_LOG("Deserialized greeting from %s: %s", greeting.username);
+                            DEBUG_LOG("Deserialized greeting from %s:", greeting.username);
 
                             PlayerDataPacket reply;
                             memset(&reply, 0, sizeof(PlayerDataPacket));
                             strcpy(reply.username, "Server");
-                            strcpy(reply.client_id, clients[i].clientId);
+                            reply.client_id = clients[i].clientId;
 
                             Packet reply_packet;
                             serialize_packet(&reply, Greeting, &reply_packet, sizeof(PlayerDataPacket));

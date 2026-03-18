@@ -1,8 +1,13 @@
 #include "level.h"
 #include "tile.h"
-#include <raylib.h>
 #include <stdlib.h>
 #include "../util/math.h"
+
+#if defined(_WIN32)
+    #define CloseWindow RaylibCloseWindow
+    #define ShowCursor RaylibShowCursor
+#endif
+#include "raylib.h"
 
 Level* generate_basic_level(u16 width, u16 height) {
     Level* level = (Level*)malloc(sizeof(Level)); // Basiclly the 'new' keyword

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: E:/Dev/OnlineCRpg/build/_deps/raylib-src
-# Build directory: E:/Dev/OnlineCRpg/build/_deps/raylib-build
+# Source directory: C:/Dev/OnlineCRpg/build/_deps/raylib-src
+# Build directory: C:/Dev/OnlineCRpg/build/_deps/raylib-build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

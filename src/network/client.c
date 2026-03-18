@@ -45,6 +45,7 @@ void client_handle_packets() {
 		PlayerDataPacket greeting;
 		memset(&greeting, 0, sizeof(PlayerDataPacket));
 		strcpy(greeting.username, "ClientUser");
+		greeting.client_id = -1;
 
 		Packet packet;
 		serialize_packet(&greeting, Greeting, &packet, sizeof(PlayerDataPacket));

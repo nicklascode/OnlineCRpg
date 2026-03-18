@@ -1,1 +1,1 @@
--I"E:/Dev/OnlineCRpg/build/_deps/raylib-src/src" -isystem "E:/Dev/OnlineCRpg/build/_deps/raylib-src/src/external/glfw/include"
+-I"C:/Dev/OnlineCRpg/build/_deps/raylib-src/src" -isystem "C:/Dev/OnlineCRpg/build/_deps/raylib-src/src/external/glfw/include"

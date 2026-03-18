@@ -34,6 +34,10 @@ if(WIN32)
     if(MSVC)
         set_property(TARGET OnlineCRpg PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
     endif()
+    # Disable implicit function declaration warning for GCC/MinGW
+    if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
+        target_compile_options(OnlineCRpg PRIVATE -Wno-implicit-function-declaration) # Prop unsafe
+    endif()
 endif()
 
 # Optionally, install target
