@@ -15,7 +15,12 @@ SRC = \
 	src/network/global_net.c \
 	src/level/tile.c \
 	src/util/assets.c \
-	src/entites/entity.c
+	src/entites/entity.c \
+	src/entites/player.c \
+	src/entites/entity_system.c \
+	src/entites/sprite.c \
+	src/network/lobby.c \
+	src/util/compress_util.c
 OUT = output/main.exe
 
 all: $(OUT)

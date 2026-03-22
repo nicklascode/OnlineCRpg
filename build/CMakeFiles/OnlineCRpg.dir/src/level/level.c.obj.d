@@ -24,4 +24,4 @@ CMakeFiles/OnlineCRpg.dir/src/level/level.c.obj: \
  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
  C:/msys64/ucrt64/include/malloc.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mm_malloc.h \
- C:/msys64/ucrt64/include/errno.h
+ C:/msys64/ucrt64/include/errno.h C:/msys64/ucrt64/include/math.h

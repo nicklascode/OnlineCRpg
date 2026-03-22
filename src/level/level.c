@@ -2,6 +2,7 @@
 #include "tile.h"
 #include <stdlib.h>
 #include "../util/math.h"
+#include <math.h>
 
 #if defined(_WIN32)
     #define CloseWindow RaylibCloseWindow
@@ -18,11 +19,14 @@ Level* generate_basic_level(u16 width, u16 height) {
     for (u16 y = 0; y < height; y++) {
         for (u16 x = 0; x < width; x++) {
             TileData* tileData = &level->tiles[y * width + x];
-            Tile* tile = &Floor_Tile; // For now, all tiles are floor tiles.
+            float t = sin((float)x / width * 3.14f) * cos((float)y / height * 3.14f) * 0.5f + 0.5f; // Just some random pattern for demo purposes
+            if (t < 0.5f) {
+                tileData->tile = Floor_Tile;
+            } else {
+                tileData->tile = Wall_Tile;
+            }
 
-            tileData->position = (Vec2I){ x, y}; // Since we don't have a 'new' keyword, and this is a struct, we just use an expression to set the position. (Vector2I){x, y}
-
-            tileData->tile = *tile; // Set the tile data. 
+            tileData->position = (Vec2I){x, y};
         }
     }
 

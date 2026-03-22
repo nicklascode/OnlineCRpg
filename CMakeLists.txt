@@ -22,6 +22,11 @@ add_executable(OnlineCRpg
     src/level/tile.c
     src/util/assets.c
     src/entites/entity.c
+    src/entites/player.c
+    src/entites/entity_system.c
+    src/entites/sprite.c
+    src/network/lobby.c
+    src/util/compress_util.c
 )
 target_link_libraries(OnlineCRpg PRIVATE raylib ws2_32)
 
@@ -42,3 +47,11 @@ endif()
 
 # Optionally, install target
 install(TARGETS OnlineCRpg RUNTIME DESTINATION bin)
+
+# Copy assets folder to build output directory after building
+add_custom_command(TARGET OnlineCRpg POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:OnlineCRpg>/assets
+    COMMENT "Copying assets folder to build output directory"
+)

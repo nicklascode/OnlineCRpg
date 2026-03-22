@@ -2,11 +2,7 @@
 #define GLOBAL_H // make exsit
 
 #include "level/level.h"
-
-typedef struct network {
-    u8 mode;
-    int isConnected;
-} Network;
+#include "network/global_net.h"
 
 typedef struct global {
     Level level;

@@ -16,4 +16,6 @@ CMakeFiles/OnlineCRpg.dir/src/global.c.obj: \
  E:/Dev/OnlineCRpg/build/_deps/raylib-src/src/raylib.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdarg.h \
  C:/msys64/ucrt64/include/stdarg.h \
- C:/msys64/ucrt64/include/_mingw_stdarg.h
+ C:/msys64/ucrt64/include/_mingw_stdarg.h \
+ E:\Dev\OnlineCRpg\src\network/global_net.h \
+ E:/Dev/OnlineCRpg/src/network/nettypes.h E:/Dev/OnlineCRpg/src/types.h

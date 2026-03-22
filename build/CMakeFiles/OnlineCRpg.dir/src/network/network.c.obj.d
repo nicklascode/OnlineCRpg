@@ -227,7 +227,7 @@ CMakeFiles/OnlineCRpg.dir/src/network/network.c.obj: \
  C:/msys64/ucrt64/include/psdk_inc/_ip_mreq1.h \
  C:/msys64/ucrt64/include/mstcpip.h \
  E:\Dev\OnlineCRpg\src\network\client.h \
- E:\Dev\OnlineCRpg\src\network\server.h \
- E:\Dev\OnlineCRpg\src\network\packet.h \
  E:\Dev\OnlineCRpg\src\network\global_net.h \
- E:/Dev/OnlineCRpg/src/network/nettypes.h E:/Dev/OnlineCRpg/src/types.h
+ E:/Dev/OnlineCRpg/src/network/nettypes.h E:/Dev/OnlineCRpg/src/types.h \
+ E:\Dev\OnlineCRpg\src\network\server.h \
+ E:\Dev\OnlineCRpg\src\network\packet.h

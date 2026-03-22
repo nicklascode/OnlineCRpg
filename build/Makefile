@@ -269,6 +269,78 @@ src/entites/entity.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity.c.s
 .PHONY : src/entites/entity.c.s
 
+src/entites/entity_system.obj: src/entites/entity_system.c.obj
+.PHONY : src/entites/entity_system.obj
+
+# target to build an object file
+src/entites/entity_system.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity_system.c.obj
+.PHONY : src/entites/entity_system.c.obj
+
+src/entites/entity_system.i: src/entites/entity_system.c.i
+.PHONY : src/entites/entity_system.i
+
+# target to preprocess a source file
+src/entites/entity_system.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity_system.c.i
+.PHONY : src/entites/entity_system.c.i
+
+src/entites/entity_system.s: src/entites/entity_system.c.s
+.PHONY : src/entites/entity_system.s
+
+# target to generate assembly for a file
+src/entites/entity_system.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/entity_system.c.s
+.PHONY : src/entites/entity_system.c.s
+
+src/entites/player.obj: src/entites/player.c.obj
+.PHONY : src/entites/player.obj
+
+# target to build an object file
+src/entites/player.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/player.c.obj
+.PHONY : src/entites/player.c.obj
+
+src/entites/player.i: src/entites/player.c.i
+.PHONY : src/entites/player.i
+
+# target to preprocess a source file
+src/entites/player.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/player.c.i
+.PHONY : src/entites/player.c.i
+
+src/entites/player.s: src/entites/player.c.s
+.PHONY : src/entites/player.s
+
+# target to generate assembly for a file
+src/entites/player.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/player.c.s
+.PHONY : src/entites/player.c.s
+
+src/entites/sprite.obj: src/entites/sprite.c.obj
+.PHONY : src/entites/sprite.obj
+
+# target to build an object file
+src/entites/sprite.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/sprite.c.obj
+.PHONY : src/entites/sprite.c.obj
+
+src/entites/sprite.i: src/entites/sprite.c.i
+.PHONY : src/entites/sprite.i
+
+# target to preprocess a source file
+src/entites/sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/sprite.c.i
+.PHONY : src/entites/sprite.c.i
+
+src/entites/sprite.s: src/entites/sprite.c.s
+.PHONY : src/entites/sprite.s
+
+# target to generate assembly for a file
+src/entites/sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/entites/sprite.c.s
+.PHONY : src/entites/sprite.c.s
+
 src/global.obj: src/global.c.obj
 .PHONY : src/global.obj
 
@@ -413,6 +485,30 @@ src/network/global_net.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/global_net.c.s
 .PHONY : src/network/global_net.c.s
 
+src/network/lobby.obj: src/network/lobby.c.obj
+.PHONY : src/network/lobby.obj
+
+# target to build an object file
+src/network/lobby.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/lobby.c.obj
+.PHONY : src/network/lobby.c.obj
+
+src/network/lobby.i: src/network/lobby.c.i
+.PHONY : src/network/lobby.i
+
+# target to preprocess a source file
+src/network/lobby.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/lobby.c.i
+.PHONY : src/network/lobby.c.i
+
+src/network/lobby.s: src/network/lobby.c.s
+.PHONY : src/network/lobby.s
+
+# target to generate assembly for a file
+src/network/lobby.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/network/lobby.c.s
+.PHONY : src/network/lobby.c.s
+
 src/network/network.obj: src/network/network.c.obj
 .PHONY : src/network/network.obj
 
@@ -509,6 +605,30 @@ src/util/assets.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/assets.c.s
 .PHONY : src/util/assets.c.s
 
+src/util/compress_util.obj: src/util/compress_util.c.obj
+.PHONY : src/util/compress_util.obj
+
+# target to build an object file
+src/util/compress_util.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/compress_util.c.obj
+.PHONY : src/util/compress_util.c.obj
+
+src/util/compress_util.i: src/util/compress_util.c.i
+.PHONY : src/util/compress_util.i
+
+# target to preprocess a source file
+src/util/compress_util.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/compress_util.c.i
+.PHONY : src/util/compress_util.c.i
+
+src/util/compress_util.s: src/util/compress_util.c.s
+.PHONY : src/util/compress_util.s
+
+# target to generate assembly for a file
+src/util/compress_util.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/src/util/compress_util.c.s
+.PHONY : src/util/compress_util.c.s
+
 src/util/logger.obj: src/util/logger.c.obj
 .PHONY : src/util/logger.obj
 
@@ -555,6 +675,15 @@ help:
 	@echo ... src/entites/entity.obj
 	@echo ... src/entites/entity.i
 	@echo ... src/entites/entity.s
+	@echo ... src/entites/entity_system.obj
+	@echo ... src/entites/entity_system.i
+	@echo ... src/entites/entity_system.s
+	@echo ... src/entites/player.obj
+	@echo ... src/entites/player.i
+	@echo ... src/entites/player.s
+	@echo ... src/entites/sprite.obj
+	@echo ... src/entites/sprite.i
+	@echo ... src/entites/sprite.s
 	@echo ... src/global.obj
 	@echo ... src/global.i
 	@echo ... src/global.s
@@ -573,6 +702,9 @@ help:
 	@echo ... src/network/global_net.obj
 	@echo ... src/network/global_net.i
 	@echo ... src/network/global_net.s
+	@echo ... src/network/lobby.obj
+	@echo ... src/network/lobby.i
+	@echo ... src/network/lobby.s
 	@echo ... src/network/network.obj
 	@echo ... src/network/network.i
 	@echo ... src/network/network.s
@@ -585,6 +717,9 @@ help:
 	@echo ... src/util/assets.obj
 	@echo ... src/util/assets.i
 	@echo ... src/util/assets.s
+	@echo ... src/util/compress_util.obj
+	@echo ... src/util/compress_util.i
+	@echo ... src/util/compress_util.s
 	@echo ... src/util/logger.obj
 	@echo ... src/util/logger.i
 	@echo ... src/util/logger.s

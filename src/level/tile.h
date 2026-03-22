@@ -17,4 +17,5 @@ typedef struct tile {
 // TILES
 extern Tile Empty_Tile;
 extern Tile Floor_Tile;
+extern Tile Wall_Tile;
 

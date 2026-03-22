@@ -8,11 +8,11 @@ typedef enum {
     ENTITY_PLAYER = 1
 } EntityType;
 
-
 // DATA
 typedef struct {
     u32 health;
     u32 damage;
+    u8 speed;
 } LivingEntityData;
 
 #endif // ENTITY_TYPES_H

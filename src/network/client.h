@@ -5,6 +5,8 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
+#include "global_net.h"
+
 #undef CloseWindow
 #undef ShowCursor
 #undef Rectangle

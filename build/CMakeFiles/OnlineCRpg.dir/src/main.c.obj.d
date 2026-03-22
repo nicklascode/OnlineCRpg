@@ -17,6 +17,8 @@ CMakeFiles/OnlineCRpg.dir/src/main.c.obj: E:\Dev\OnlineCRpg\src\main.c \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdarg.h \
  C:/msys64/ucrt64/include/stdarg.h \
  C:/msys64/ucrt64/include/_mingw_stdarg.h \
+ E:\Dev\OnlineCRpg\src\network/global_net.h \
+ E:/Dev/OnlineCRpg/src/network/nettypes.h E:/Dev/OnlineCRpg/src/types.h \
  E:\Dev\OnlineCRpg\src\util/logger.h C:/msys64/ucrt64/include/stdio.h \
  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
  C:/msys64/ucrt64/include/_mingw_off_t.h \
@@ -24,4 +26,12 @@ CMakeFiles/OnlineCRpg.dir/src/main.c.obj: E:\Dev\OnlineCRpg\src\main.c \
  C:/msys64/ucrt64/include/sec_api/stdio_s.h \
  E:\Dev\OnlineCRpg\src\network/nettypes.h E:/Dev/OnlineCRpg/src/types.h \
  E:\Dev\OnlineCRpg\src\util/assets.h \
- E:\Dev\OnlineCRpg\src\entites/entity.h E:/Dev/OnlineCRpg/src/types.h
+ E:\Dev\OnlineCRpg\src\entites/entity.h E:/Dev/OnlineCRpg/src/types.h \
+ E:\Dev\OnlineCRpg\src\entites/entity_types.h \
+ E:\Dev\OnlineCRpg\src\entites/sprite.h E:/Dev/OnlineCRpg/src/util/math.h \
+ E:\Dev\OnlineCRpg\src\entites/entity_system.h \
+ E:\Dev\OnlineCRpg\src\entites/entity.h \
+ E:\Dev\OnlineCRpg\src\entites/sprite.h \
+ E:\Dev\OnlineCRpg\src\entites/player.h \
+ E:/Dev/OnlineCRpg/src/network/nettypes.h \
+ E:/Dev/OnlineCRpg/src/network/global_net.h
