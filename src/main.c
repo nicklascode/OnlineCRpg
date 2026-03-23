@@ -103,7 +103,7 @@ int main(int argc, char** argv)
                 Entity* _entity = create_entity(current_entity_manager, ENTITY_PLAYER, -1);
                 if (_entity) {
                     _entity->position = (Vec2){mousePos.x, mousePos.y};
-                    _entity->sprite = create_sprite(NULL, NULL);
+                    _entity->sprite = create_sprite(0,0);
                 }
             }
         }

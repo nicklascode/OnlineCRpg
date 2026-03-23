@@ -63,8 +63,8 @@ void client_handle_packets() {
 	while (1) {
 		int received = receive_packet(client.socket, &recv_packet);
 		if (received == 1) {
-			DEBUG_LOG("Received packet from server, id: %d", recv_packet.id);
-			switch (recv_packet.id) {
+			DEBUG_LOG("Received packet from server, id: %d", recv_packet.type);
+			switch (recv_packet.type) {
 				case S_LobbyData: {
 					LobbyDataPacket lobby_data;
 					deserialize_packet(&recv_packet, &lobby_data, sizeof(LobbyDataPacket));
@@ -137,7 +137,7 @@ void client_handle_packets() {
 
 				case 0:
 				default:
-					ERROR_LOG("Received unknown packet ID: %d", recv_packet.id);
+					ERROR_LOG("Received unknown packet ID: %d", recv_packet.type);
 					break;
 			}
 		} else if (received == -1) {

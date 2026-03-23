@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include "packet.h"
 #include <winsock2.h>
+#include <stdio.h>
 #include <string.h>
 #include "../util/logger.h"
 #include "../util/compress_util.h"
 
-int receive_packet(int socket, Packet *packet) {
+int receive_packet(int socket, Packet_chunk *packet) {
     // Read the packet header (ID, isCompressed, and length)
-    int received = recv(socket, (char*)&packet->id, 1, 0);
+    int received = recv(socket, (char*)&packet->type, 1, 0);
     if (received <= 0) {
         return -1; // Connection closed or error
     }
@@ -40,14 +41,14 @@ int receive_packet(int socket, Packet *packet) {
     return 1; // Packet received successfully
 }
 
-void send_packet(int socket, Packet *packet) {
+void send_packet(int socket, Packe *packet) {
     int total_sent = 0;
     // Now include isCompressed as a single byte after id
-    int packet_size = sizeof(packet->id) + sizeof(packet->isCompressed) + sizeof(packet->length) + packet->length;
-    unsigned char send_buffer[sizeof(Packet)];
+    int packet_size = sizeof(packet->type) + sizeof(packet->isCompressed) + sizeof(packet->length) + packet->length;
+    unsigned char send_buffer[sizeof(Packet_chunk)];
 
     // Serialize the packet into a contiguous buffer
-    send_buffer[0] = packet->id;
+    send_buffer[0] = packet->type;
     send_buffer[1] = packet->isCompressed ? 1 : 0;
     memcpy(send_buffer + 2, &packet->length, sizeof(packet->length));
     memcpy(send_buffer + 2 + sizeof(packet->length), packet->buffer, packet->length);
@@ -64,14 +65,34 @@ void send_packet(int socket, Packet *packet) {
 }
 
 void serialize_packet(void* src, u8 type, Packet* dst, size_t size) {
-    dst->id = type;
-    dst->length = (u16)size;
+    dst->type = type;
+    dst->lenght = (u16)size;
 
+    int chunkIdStart = rand() % 256; // Random chunk ID
     if(size >= MAX_PACKET_BUFFER) {
-        DEBUG_LOG("Size of packet [%d], exceeds capacity %d", size, MAX_PACKET_BUFFER);
-        DEBUG_LOG("Gonna try and compress it");
-        compress_packet(dst);
-        return;
+        int chunkSize = 1;
+        Packet_chunk* chunks = (Packet_chunk*)malloc(chunkSize * sizeof(Packet_chunk));
+        int lastEndLenght = 0;
+
+        for(int i = 0; i < size; i++) {
+            if(lastEndLenght <= size) {
+                int dstLeft = size - lastEndLenght;
+                int copySize = dstLeft > MAX_PACKET_BUFFER ? MAX_PACKET_BUFFER : dstLeft; // How much we will copy, could be dstLeft, if there is less data in payload left then MAX_PACKET_BUFFER
+
+                // Slice
+                Packet_chunk chunk = slice_chunk((Packet*)src, lastEndLenght, copySize);
+                chunk.id = (chunkIdStart + i);
+                chunks[i] = chunk;
+                lastEndLenght += copySize;
+
+                // Add new chunk to array
+                chunkSize++;
+                chunks = (Packet_chunk*)realloc(chunks, chunkSize * sizeof(Packet_chunk));
+                DEBUG_LOG("Created chunk %d with size %d (index %d)", chunk.id, chunk.length, chunk.index);
+            } else {
+                break;
+            }
+        }
     }
 
     memcpy(dst->buffer, src, size);
@@ -80,12 +101,8 @@ void serialize_packet(void* src, u8 type, Packet* dst, size_t size) {
 void deserialize_packet(const Packet* src, void* dst, size_t size) {
     if(src->isCompressed) {
         DEBUG_LOG("Packet is compressed, decompressing...");
-        Packet temp_packet = *src; // Create a copy to decompress
+        Packet_chunk temp_packet = *src; // Create a copy to decompress
         decompress_packet(&temp_packet);
-        if(temp_packet.length != size) {
-            DEBUG_LOG("Decompressed packet size [%d] does not match expected size %d", temp_packet.length, size);
-            return;
-        }
 
         memcpy(dst, temp_packet.buffer, size);
         return;
@@ -94,36 +111,23 @@ void deserialize_packet(const Packet* src, void* dst, size_t size) {
     memcpy(dst, src->buffer, size);
 }
 
-void compress_packet(Packet* packet) {
-    int compressed_size = 0;
-    unsigned char* compressed_data = compress_data(packet->buffer, packet->length, &compressed_size);
-    if (compressed_data) {
-        if (compressed_size < MAX_PACKET_BUFFER) {
-            memcpy(packet->buffer, compressed_data, compressed_size);
-            packet->length = (u16)compressed_size;
-            packet->isCompressed = 1;
-        } else {
-            DEBUG_LOG("Compressed data size [%d] exceeds buffer capacity %d", compressed_size, MAX_PACKET_BUFFER);
-        }
-        free(compressed_data);
-    } else {
-        DEBUG_LOG("Failed to compress packet data");
-    }
-}
+Packet_chunk slice_chunk(Packet* src, int start, size_t lenght) {
+    const char* cpyPayload = (char*)malloc(src->lenght * sizeof(char));
+    memcpy(cpyPayload, src->buffer, lenght);
 
-void decompress_packet(Packet* packet) {
-    int decompressed_size = 0;
-    unsigned char* decompressed_data = decompress_data(packet->buffer, packet->length, &decompressed_size);
-    if (decompressed_data) {
-        if (decompressed_size < MAX_PACKET_BUFFER) {
-            memcpy(packet->buffer, decompressed_data, decompressed_size);
-            packet->length = (u16)decompressed_size;
-            packet->isCompressed = 0;
-        } else {
-            DEBUG_LOG("Decompressed data size [%d] exceeds buffer capacity %d", decompressed_size, MAX_PACKET_BUFFER);
-        }
-        free(decompressed_data);
-    } else {
-        DEBUG_LOG("Failed to decompress packet data");
+    Packet_chunk chunk;
+    chunk.type = src->type;
+    chunk.id = 0; // We will set it after
+    chunk.index = start / MAX_PACKET_BUFFER; // Calculate the index based on the start position
+    chunk.length = (u16)lenght;
+    
+    int index = 0;
+    while(index < lenght) {
+        int copySize = (lenght - index) > MAX_PACKET_BUFFER ? MAX_PACKET_BUFFER : (lenght - index);
+        memcpy(chunk.buffer + index, cpyPayload + index, copySize);
+        index += copySize;
     }
+
+    free(cpyPayload);
+    return chunk;
 }

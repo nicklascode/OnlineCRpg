@@ -20,14 +20,19 @@ typedef enum : u8
 
 } Packets;
 
-
-typedef struct packet {
-    u8 id; // Packet type identifier
-    u8 isCompressed; // Flag to indicate if the payload is compressed (1 byte)
+typedef struct packet_chunk {
+    u8 type; // Packet type identifier
+    u8 id; // Id
+    u8 index; // Ie wich index of the packet we are
     u16 length; // Length of the payload
     unsigned char buffer[MAX_PACKET_BUFFER]; // Raw payload buffer
-} Packet;
+} Packet_chunk;
 
+typedef struct packet {
+    u8 type;
+    u16 lenght;
+    unsigned char* buffer;
+} Packet;
 
 void send_packet(int socket, Packet *packet);
 int receive_packet(int socket, Packet *packet);
@@ -36,8 +41,9 @@ int receive_packet(int socket, Packet *packet);
 void serialize_packet(void* src, u8 type, Packet* dst, size_t size);
 void deserialize_packet(const Packet* src, void* dst, size_t size);
 
-void compress_packet(Packet* packet);
-void decompress_packet(Packet* packet);
+// Packet split
+Packet_chunk slice_chunk(Packet* src, int start, size_t lenght); // Slice a part of the packet into a chunk
+
 
 /* PACKET TYPES [STRUCTS]*/
 

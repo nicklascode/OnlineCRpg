@@ -72,7 +72,7 @@ void server_handle_packets() {
             while (1) {
                 received = receive_packet(server_clients_list[i].socket, &packet);
                 if (received == 1) {
-                    switch (packet.id) {
+                    switch (packet.type) {
                         case C_Greeting: 
                         {
                             Client_Info greeting;
@@ -149,7 +149,7 @@ void server_handle_packets() {
                         // ERRRRR
                         case 0:
                         default:
-                            ERROR_LOG("Received unknown packet ID: %d from clientId=%d", packet.id, server_clients_list[i].clientId);
+                            ERROR_LOG("Received unknown packet ID: %d from clientId=%d", packet.type, server_clients_list[i].clientId);
                             break;
                     }
                 } else if (received == -1) {
