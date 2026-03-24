@@ -54,6 +54,7 @@ void client_handle_packets() {
 		Packet packet;
 		serialize_packet(&client_info_packet, C_Greeting, &packet, sizeof(Client_Info));
 		send_packet(client.socket, &packet);
+
 		DEBUG_LOG("Sent greeting packet");
 		greeting_sent = 1;
 	}
@@ -67,7 +68,7 @@ void client_handle_packets() {
 			switch (recv_packet.type) {
 				case S_LobbyData: {
 					LobbyDataPacket lobby_data;
-					deserialize_packet(&recv_packet, &lobby_data, sizeof(LobbyDataPacket));
+					deserialize_packet(recv_packet.chunks, (Packet*)&lobby_data, sizeof(LobbyDataPacket));
 
 					Client_Info* clients = lobby_data.players;
 					u8 num_clients = lobby_data.num_players;
@@ -80,6 +81,7 @@ void client_handle_packets() {
 					RequestSpawnPacket spawn_request = {
 						.spawn_type = REQUEST_SPAWN_PLAYER
 					};
+
 					Packet spawn_packet;
 					serialize_packet(&spawn_request, C_RequestSpawn, &spawn_packet, sizeof(RequestSpawnPacket));
 					send_packet(client.socket, &spawn_packet);
@@ -88,7 +90,7 @@ void client_handle_packets() {
 
 				case S_SpawnEntity: {
 					SpawnEntityPacket spawn_data;
-					deserialize_packet(&recv_packet, &spawn_data, sizeof(SpawnEntityPacket));
+					deserialize_packet(recv_packet.chunks, (Packet*)&spawn_data, sizeof(SpawnEntityPacket));
 					DEBUG_LOG("Received spawn entity packet: entity_id=%d, type=%d, x=%.2f, y=%.2f", spawn_data.entity_id, spawn_data.entity_type, spawn_data.x, spawn_data.y);
 
 					if(spawn_data.entity_type == ENTITY_PLAYER) {

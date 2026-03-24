@@ -21,8 +21,6 @@ typedef enum : u8
 } Packets;
 
 typedef struct packet_chunk {
-    u8 type; // Packet type identifier
-    u8 id; // Id
     u8 index; // Ie wich index of the packet we are
     u16 length; // Length of the payload
     unsigned char buffer[MAX_PACKET_BUFFER]; // Raw payload buffer
@@ -30,8 +28,9 @@ typedef struct packet_chunk {
 
 typedef struct packet {
     u8 type;
-    u16 lenght;
-    unsigned char* buffer;
+    u32 id;
+    u16 length;
+    Packet_chunk* chunks;
 } Packet;
 
 void send_packet(int socket, Packet *packet);
@@ -39,7 +38,7 @@ int receive_packet(int socket, Packet *packet);
 
 // Generic serialization/deserialization
 void serialize_packet(void* src, u8 type, Packet* dst, size_t size);
-void deserialize_packet(const Packet* src, void* dst, size_t size);
+void deserialize_packet(const Packet_chunk* src, Packet* dst, size_t size);
 
 // Packet split
 Packet_chunk slice_chunk(Packet* src, int start, size_t lenght); // Slice a part of the packet into a chunk

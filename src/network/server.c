@@ -76,7 +76,7 @@ void server_handle_packets() {
                         case C_Greeting: 
                         {
                             Client_Info greeting;
-                            memcpy(&greeting, packet.buffer, sizeof(Client_Info));
+                            deserialize_packet(packet.chunks, (Packet*)&greeting, sizeof(Client_Info));
                             DEBUG_LOG("Deserialized greeting from %s:", greeting.username);
 
                             // Add client to lobby
@@ -101,7 +101,7 @@ void server_handle_packets() {
                         case C_RequestSpawn:
                         {
                             RequestSpawnPacket spawn_request;
-                            memcpy(&spawn_request, packet.buffer, sizeof(RequestSpawnPacket));
+                            deserialize_packet(packet.chunks, (Packet*)&spawn_request, sizeof(RequestSpawnPacket));
                             DEBUG_LOG("Received spawn request of type %d from clientId=%d", spawn_request.spawn_type, server_clients_list[i].clientId);
 
                             if(spawn_request.spawn_type == REQUEST_SPAWN_PLAYER) {
@@ -133,7 +133,6 @@ void server_handle_packets() {
 
                                     Packet spawn_packet;
                                     serialize_packet(&spawn_packet_data, S_SpawnEntity, &spawn_packet, sizeof(SpawnEntityPacket));
-
                                     for (int j = 0; j < MAX_CLIENTS; ++j) {
                                         if (server_clients_list[j].connected && server_clients_list[j].socket != INVALID_SOCKET) {
                                             send_packet(server_clients_list[j].socket, &spawn_packet);
@@ -164,6 +163,10 @@ void server_handle_packets() {
                     break;
                 }
             }
+        } else if (server_clients_list[i].connected && server_clients_list[i].socket == INVALID_SOCKET) {
+            // Handle disconnection
+            DEBUG_LOG("Client disconnected (clientId=%d)", server_clients_list[i].clientId);
+            server_clients_list[i].connected = 0;
         }
     }
 
