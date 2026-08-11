@@ -14,4 +14,6 @@ typedef struct vec2i {
 #define V2_TO_V2I(v) ((Vec2I){(int)(v.x), (int)(v.y)})
 #define V2I_TO_V2(v) ((Vec2){(float)(v.x), (float)(v.y)})
 
+#define lerp(a, b, t) ((a) + ((b) - (a)) * (t))
+
 #endif // MATH_H

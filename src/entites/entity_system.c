@@ -1,5 +1,5 @@
 #include "entity_system.h"
-#include <raylib.h>
+#include "../raylib_m.h"
 #include "../util/assets.h"
 #include "player.h"
 #include "entity.h"

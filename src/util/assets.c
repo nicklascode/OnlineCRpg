@@ -1,5 +1,4 @@
 #include "assets.h"
-#include <raylib.h>
 #include <stdlib.h>
 
 Texture2D g_tile_textures[TILE_TEXTURE_COUNT];

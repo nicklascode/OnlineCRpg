@@ -1,7 +1,6 @@
 #pragma once
 #include "../util/math.h"
 #include "../types.h"
-#include <raylib.h>
 
 // FLAGS
 #define TILE_FLAG_SOLID = (1 << 0); // Shift by well... 0 lol

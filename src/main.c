@@ -1,7 +1,7 @@
 #include "types.h"
 #include "global.h"
 #include "util/logger.h"
-#include "raylib.h"
+#include "raylib_m.h"
 
 #include  "network/nettypes.h"
 
@@ -104,6 +104,8 @@ int main(int argc, char** argv)
                 if (_entity) {
                     _entity->position = (Vec2){mousePos.x, mousePos.y};
                     _entity->sprite = create_sprite(0,0);
+
+
                 }
             }
         }

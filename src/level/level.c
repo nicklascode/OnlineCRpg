@@ -4,11 +4,7 @@
 #include "../util/math.h"
 #include <math.h>
 
-#if defined(_WIN32)
-    #define CloseWindow RaylibCloseWindow
-    #define ShowCursor RaylibShowCursor
-#endif
-#include "raylib.h"
+#include "../raylib_m.h"
 
 Level* generate_basic_level(u16 width, u16 height) {
     Level* level = (Level*)malloc(sizeof(Level)); // Basiclly the 'new' keyword
@@ -19,7 +15,7 @@ Level* generate_basic_level(u16 width, u16 height) {
     for (u16 y = 0; y < height; y++) {
         for (u16 x = 0; x < width; x++) {
             TileData* tileData = &level->tiles[y * width + x];
-            float t = sin((float)x / width * 3.14f) * cos((float)y / height * 3.14f) * 0.5f + 0.5f; // Just some random pattern for demo purposes
+            float t = sin((float)x / width * 3.14f) * cos((float)y / height * 3.14f) * 0.5f + 0.5f;
             if (t < 0.5f) {
                 tileData->tile = Floor_Tile;
             } else {

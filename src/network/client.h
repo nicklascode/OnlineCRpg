@@ -6,6 +6,7 @@
 #include <ws2tcpip.h>
 
 #include "global_net.h"
+#include "packet.h"
 
 #undef CloseWindow
 #undef ShowCursor
@@ -20,3 +21,6 @@ typedef struct client {
 void client_init();
 void client_handle_packets();
 void client_shutdown();
+void client_send_packet(Packet* packet);
+
+extern Client local_client;

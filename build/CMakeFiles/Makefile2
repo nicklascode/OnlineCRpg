@@ -165,8 +165,8 @@ _deps/raylib-build/raylib/external/glfw/src/clean: _deps/raylib-build/raylib/ext
 # Target rules for target CMakeFiles/OnlineCRpg.dir
 
 # All Build rule for target.
-CMakeFiles/OnlineCRpg.dir/all: _deps/raylib-build/raylib/CMakeFiles/raylib.dir/all
 CMakeFiles/OnlineCRpg.dir/all: _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/OnlineCRpg.dir/all: _deps/raylib-build/raylib/CMakeFiles/raylib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OnlineCRpg.dir\build.make CMakeFiles/OnlineCRpg.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Dev\OnlineCRpg\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target OnlineCRpg"

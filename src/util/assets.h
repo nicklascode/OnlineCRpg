@@ -1,5 +1,5 @@
 
-#include <raylib.h>
+#include "../raylib_m.h"
 
 #define TILE_TEXTURE_COUNT 2
 extern Texture2D g_tile_textures[TILE_TEXTURE_COUNT];

@@ -1,5 +1,5 @@
 #include "compress_util.h"
-#include "raylib.h"
+#include "../raylib_m.h"
 
 unsigned char* compress_data(const unsigned char* data, int dataSize, int* compDataSize) {
     return CompressData(data, dataSize, compDataSize);

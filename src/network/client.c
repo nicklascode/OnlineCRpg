@@ -8,6 +8,7 @@
 #include "packet.h"
 #include "network.h"
 #include "../util/logger.h"
+#include "../util/math.h"
 #include "../network/nettypes.h"
 #include "../network/global_net.h"
 #include "../network/lobby.h"
@@ -15,7 +16,8 @@
 #include "../entites/player.h"
 #include "../network/global_net.h"
 
-Client client;
+Client local_client;
+
 
 void client_init() {
 	// Initialize Winsock
@@ -23,24 +25,24 @@ void client_init() {
 	WSAStartup(MAKEWORD(2, 2), &wsaData);
 
 	// Create a socket and connect to the server
-	client.socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	client.address.sin_family = AF_INET;
-	client.address.sin_addr.s_addr = inet_addr("127.0.0.1"); // Localhost for now
-	client.address.sin_port = htons(PORT);
+	local_client.socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	local_client.address.sin_family = AF_INET;
+	local_client.address.sin_addr.s_addr = inet_addr("127.0.0.1"); // Localhost for now
+	local_client.address.sin_port = htons(PORT);
 
-	   if (connect(client.socket, (SOCKADDR*)&client.address, sizeof(client.address)) == SOCKET_ERROR) {
+	   if (connect(local_client.socket, (SOCKADDR*)&local_client.address, sizeof(local_client.address)) == SOCKET_ERROR) {
 		   ERROR_LOG("Failed to connect to server");
 	   } else {
 		   DEBUG_LOG("Connected to server");
 		   // Set client socket to non-blocking
 		   u_long mode = 1;
-		   ioctlsocket(client.socket, FIONBIO, &mode);
+		   ioctlsocket(local_client.socket, FIONBIO, &mode);
 	   }
 }
 
 void client_handle_packets() {
 	static int greeting_sent = 0;
-	if (client.socket == INVALID_SOCKET) {
+	if (local_client.socket == INVALID_SOCKET) {
 		ERROR_LOG("Client socket is invalid");
 		return;
 	}
@@ -53,7 +55,7 @@ void client_handle_packets() {
 
 		Packet packet;
 		serialize_packet(&client_info_packet, C_Greeting, &packet, sizeof(Client_Info));
-		send_packet(client.socket, &packet);
+		client_send_packet(&packet);
 
 		DEBUG_LOG("Sent greeting packet");
 		greeting_sent = 1;
@@ -62,13 +64,13 @@ void client_handle_packets() {
 	// Receive packets from server
 	Packet recv_packet;
 	while (1) {
-		int received = receive_packet(client.socket, &recv_packet);
+		int received = receive_packet(local_client.socket, &recv_packet);
 		if (received == 1) {
 			DEBUG_LOG("Received packet from server, id: %d", recv_packet.type);
 			switch (recv_packet.type) {
 				case S_LobbyData: {
 					LobbyDataPacket lobby_data;
-					deserialize_packet(recv_packet.chunks, (Packet*)&lobby_data, sizeof(LobbyDataPacket));
+					deserialize_packet(&recv_packet, &lobby_data, sizeof(LobbyDataPacket));
 
 					Client_Info* clients = lobby_data.players;
 					u8 num_clients = lobby_data.num_players;
@@ -84,16 +86,16 @@ void client_handle_packets() {
 
 					Packet spawn_packet;
 					serialize_packet(&spawn_request, C_RequestSpawn, &spawn_packet, sizeof(RequestSpawnPacket));
-					send_packet(client.socket, &spawn_packet);
+					client_send_packet(&spawn_packet);
 					break;
 				}
 
-				case S_SpawnEntity: {
+				case S_SpawnEntity: { // Handle spawn entity packet
 					SpawnEntityPacket spawn_data;
-					deserialize_packet(recv_packet.chunks, (Packet*)&spawn_data, sizeof(SpawnEntityPacket));
+					deserialize_packet(&recv_packet, &spawn_data, sizeof(SpawnEntityPacket));
 					DEBUG_LOG("Received spawn entity packet: entity_id=%d, type=%d, x=%.2f, y=%.2f", spawn_data.entity_id, spawn_data.entity_type, spawn_data.x, spawn_data.y);
 
-					if(spawn_data.entity_type == ENTITY_PLAYER) {
+					if(spawn_data.entity_type == ENTITY_PLAYER) { // Handle player entity spawn
 						Entity* player_entity = create_entity(current_entity_manager, ENTITY_PLAYER, spawn_data.entity_id);
 						DEBUG_LOG("Created player entity with ID %d", player_entity ? player_entity->ID : -1);
 						if(player_entity) {
@@ -128,13 +130,22 @@ void client_handle_packets() {
 				}
 
 				case S_UpdateEntity: {
-					// Handle entity updates (not implemented in this snippet)
+
 					break;
 				}
 
 				case C_MoveEntity: {
-					// Handle move entity command (not implemented in this snippet)
-					break;
+					MoveEntityPacket move_data;
+					deserialize_packet(&recv_packet, &move_data, sizeof(MoveEntityPacket));
+					DEBUG_LOG("Received move entity command for entity_id=%d to (%.2f, %.2f)", move_data.entity_id, move_data.new_x, move_data.new_y);
+
+					Entity* entity = get_entity_by_id(current_entity_manager, move_data.entity_id);
+					if(entity && entity->type == ENTITY_PLAYER) {
+						entity->position.x = lerp(entity->position.x, move_data.new_x, 0.5f);
+						entity->position.y = lerp(entity->position.y, move_data.new_y, 0.5f);
+					} else {
+						ERROR_LOG("Entity with ID %d not found or is not a player", move_data.entity_id);
+					}
 				}
 
 				case 0:
@@ -155,12 +166,20 @@ void client_handle_packets() {
 
 void client_shutdown() {
 	DEBUG_LOG("Disconnected from server");
-	if (client.socket != INVALID_SOCKET) {
-		closesocket(client.socket);
-		client.socket = INVALID_SOCKET;
+	if (local_client.socket != INVALID_SOCKET) {
+		closesocket(local_client.socket);
+		local_client.socket = INVALID_SOCKET;
 	}
 	// Mark as disconnected so network_update() stops calling client_handle_packets
 	extern Network global_network;
 	global_network.isConnected = 0;
 	WSACleanup();
+}
+
+void client_send_packet(Packet* packet) {
+	if (local_client.socket != INVALID_SOCKET) {
+		send_packet(local_client.socket, packet);
+	} else {
+		ERROR_LOG("Cannot send packet: client socket is invalid");
+	}
 }

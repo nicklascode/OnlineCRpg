@@ -15,3 +15,4 @@ typedef struct server {
 void server_init();
 void server_handle_packets();
 void server_shutdown();
+void server_send_packet(int clientId, Packet* packet);

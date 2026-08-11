@@ -76,7 +76,7 @@ void server_handle_packets() {
                         case C_Greeting: 
                         {
                             Client_Info greeting;
-                            deserialize_packet(packet.chunks, (Packet*)&greeting, sizeof(Client_Info));
+                            deserialize_packet(&packet, &greeting, sizeof(Client_Info));
                             DEBUG_LOG("Deserialized greeting from %s:", greeting.username);
 
                             // Add client to lobby
@@ -94,14 +94,14 @@ void server_handle_packets() {
                             // Send lobby data to client
                             Packet lobby_packet;
                             serialize_packet(&lobby_data, S_LobbyData, &lobby_packet, sizeof(LobbyDataPacket));
-                            send_packet(server_clients_list[i].socket, &lobby_packet);
+                            server_send_packet(server_clients_list[i].clientId, &lobby_packet);
                             break;
                         }
 
                         case C_RequestSpawn:
                         {
                             RequestSpawnPacket spawn_request;
-                            deserialize_packet(packet.chunks, (Packet*)&spawn_request, sizeof(RequestSpawnPacket));
+                            deserialize_packet(&packet, &spawn_request, sizeof(RequestSpawnPacket));
                             DEBUG_LOG("Received spawn request of type %d from clientId=%d", spawn_request.spawn_type, server_clients_list[i].clientId);
 
                             if(spawn_request.spawn_type == REQUEST_SPAWN_PLAYER) {
@@ -135,12 +135,37 @@ void server_handle_packets() {
                                     serialize_packet(&spawn_packet_data, S_SpawnEntity, &spawn_packet, sizeof(SpawnEntityPacket));
                                     for (int j = 0; j < MAX_CLIENTS; ++j) {
                                         if (server_clients_list[j].connected && server_clients_list[j].socket != INVALID_SOCKET) {
-                                            send_packet(server_clients_list[j].socket, &spawn_packet);
+                                            server_send_packet(server_clients_list[j].clientId, &spawn_packet);
                                         }
                                     }
                                 } else {
                                     ERROR_LOG("Failed to create player entity for clientId=%d", server_clients_list[i].clientId);
                                 }
+                            }
+                            break;
+                        }
+
+                        case C_MoveEntity:
+                        {
+                            MoveEntityPacket move_data;
+                            deserialize_packet(&packet, &move_data, sizeof(MoveEntityPacket));
+                            DEBUG_LOG("Received move entity command for entity_id=%d to (%.2f, %.2f) from clientId=%d", move_data.entity_id, move_data.new_x, move_data.new_y, server_clients_list[i].clientId);
+
+                            Entity* entity = get_entity_by_id(current_entity_manager, move_data.entity_id);
+                            if(entity && entity->type == ENTITY_PLAYER) {
+                                entity->position.x = move_data.new_x;
+                                entity->position.y = move_data.new_y;
+
+                                // Broadcast the movement to all clients
+                                Packet broadcast_packet;
+                                serialize_packet(&move_data, C_MoveEntity, &broadcast_packet, sizeof(MoveEntityPacket));
+                                for (int j = 0; j < MAX_CLIENTS; ++j) {
+                                    if (server_clients_list[j].connected && server_clients_list[j].socket != INVALID_SOCKET) {
+                                        server_send_packet(server_clients_list[j].clientId, &broadcast_packet);
+                                    }
+                                }
+                            } else {
+                                ERROR_LOG("Entity with ID %d not found or is not a player", move_data.entity_id);
                             }
                             break;
                         }
@@ -181,4 +206,16 @@ void server_shutdown() {
     }
     closesocket(server.socket);
     WSACleanup();
+}
+
+void server_send_packet(int clientId, Packet* packet) {
+    if (clientId < 0 || clientId >= MAX_CLIENTS) {
+        ERROR_LOG("Invalid clientId: %d", clientId);
+        return;
+    }
+    if (server_clients_list[clientId].connected && server_clients_list[clientId].socket != INVALID_SOCKET) {
+        send_packet(server_clients_list[clientId].socket, packet);
+    } else {
+        ERROR_LOG("Cannot send packet: clientId=%d is not connected or socket is invalid", clientId);
+    }
 }
