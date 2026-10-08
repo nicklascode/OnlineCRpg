@@ -1,3 +1,10 @@
+# Online C RPG Prototype
+An attempt at making a "simple" rpg dungeon crawler with basic multiplayer in a low level language 'c'
+
+Tho not done, I had fun trying out technologies like:
+- Raylib
+- Winsock2
+
 # Build Instructions
 
 To build the project using CMake and MinGW:
@@ -11,9 +18,6 @@ To build the project using CMake and MinGW:
 
    [MinGW]
    cmake -S . -B build -G "MinGW Makefiles"
-
-   [MinGW SchoolPC]
-   cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_C_COMPILER=C:/msys64/mingw64/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/msys64/mingw64/bin/g++.exe
 
 3. Build the project:
    
